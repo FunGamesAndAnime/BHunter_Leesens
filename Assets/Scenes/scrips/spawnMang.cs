@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class spawnMang : MonoBehaviour
 {
-    public GameObject lillypad = null;
+    public GameObject[] lillypadobj = null;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,10 @@ public class spawnMang : MonoBehaviour
     }
     void SPlillypad()
     {
-        Instantiate(lillypad);
+        foreach(GameObject lillypad in lillypadobj)
+        {
+            Instantiate(lillypad);
+        }
+        
     }
 }

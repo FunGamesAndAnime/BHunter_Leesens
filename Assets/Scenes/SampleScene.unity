@@ -423,7 +423,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8b66941e80ea4841bd7855630da371a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lillypad: {fileID: 3970717804332524609, guid: 5b1fc47af3415804fb6b8cd2fe53395c, type: 3}
+  lillypadobj:
+  - {fileID: 3970717804332524609, guid: 5b1fc47af3415804fb6b8cd2fe53395c, type: 3}
+  - {fileID: 2197836276608522168, guid: e4c501e74f32897458f335709b07f4e8, type: 3}
+  - {fileID: 7447204337660870703, guid: 93082eb8bdaaeaa4b9e4c512ef2764aa, type: 3}
+  - {fileID: 4204900835331459589, guid: 9a1a487f91a2e384ebebb718fa38536c, type: 3}
+  - {fileID: 836764500921253667, guid: 80e5c5b30c993a14eb2688a9783399b8, type: 3}
+  - {fileID: 8183867263864723431, guid: 9e62324c2bd193c40bb35f45a70b571d, type: 3}
 --- !u!4 &1089252575
 Transform:
   m_ObjectHideFlags: 0

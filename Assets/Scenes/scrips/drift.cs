@@ -5,6 +5,13 @@ using UnityEngine;
 public class drift : MonoBehaviour
 {
     public float speed = 5.0f;
+    public enum DriftDirection
+    {
+        left = -1,
+        right = 1
+
+    }
+    public DriftDirection driftDirection = DriftDirection.left;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +21,21 @@ public class drift : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+        switch (driftDirection)
+        {
+            case DriftDirection.left:
+                transform.Translate(Vector3.left * Time.deltaTime * speed );
+                break;
+            case DriftDirection.right:
+                transform.Translate(Vector3.right * Time.deltaTime * speed );
+                break;
+
+
+        }
+        
+        if(transform.position.x < -80 || transform.position.x > 80)
+        {
+            Destroy(gameObject);
+        }
     }
 }
