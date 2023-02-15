@@ -6,6 +6,8 @@ TagManager:
   tags:
   - hazard
   - Hazard
+  - Item
+  - item
   layers:
   - Default
   - TransparentFX
