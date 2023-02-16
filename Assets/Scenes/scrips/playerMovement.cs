@@ -8,26 +8,26 @@ public class playerMovement : MonoBehaviour
     private Vector3 diretion = Vector3.zero;
     public float speed = 10.0f;
     public GameObject spawnPiont = null;
-    private Dictionary<Item.vegity, int> itemin = new Dictionary<Item.vegity, int>();
+    private Dictionary<ItemS.vegity, int> itemin = new Dictionary<ItemS.vegity, int>();
     // Start is called before the first frame update
     void Start()
     {
         rbplayer = GetComponent<Rigidbody>();
-        foreach(Item.vegity item in System.Enum.GetValues(typeof(Item.vegity)))
+        foreach(ItemS.vegity item in System.Enum.GetValues(typeof(ItemS.vegity)))
         {
             itemin.Add(item, 0);
         }
         
 
     }
-    private void addtoinventory(Item item)
+    private void addtoinventory(ItemS item)
     {
         itemin[item.typeofvegi]++;
     }
     private void printIN()
     {
         string output = "";
-        foreach(KeyValuePair<Item.vegity, int> kvp in itemin)
+        foreach(KeyValuePair<ItemS.vegity, int> kvp in itemin)
         {
             output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
         }
@@ -63,8 +63,9 @@ public class playerMovement : MonoBehaviour
     {
         if (other.CompareTag("Item"))
         {
-            Item item = other.gameObject.GetComponent<Item>();
+            ItemS item = other.gameObject.GetComponent<ItemS>();
             addtoinventory(item);
+            printIN();
 
         }
     }
