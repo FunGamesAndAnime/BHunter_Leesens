@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886eee5df1e64c64f810a291c121e8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemname: 
+  itemname: Radish
 --- !u!114 &44820123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886eee5df1e64c64f810a291c121e8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemname: 
+  itemname: Beet
 --- !u!114 &259578286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1698,7 +1698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886eee5df1e64c64f810a291c121e8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemname: 
+  itemname: Carret
 --- !u!114 &1777871327
 MonoBehaviour:
   m_ObjectHideFlags: 0

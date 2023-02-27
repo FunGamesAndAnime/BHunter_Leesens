@@ -7,6 +7,7 @@ public class itemCollect : Mirror.NetworkBehaviour
 {
     public delegate void CollectItem(ItemS.vegity item);
     public static event CollectItem ItemCollected;
+    Collider itemCollecter = null;
 
     private Dictionary<ItemS.vegity, int> itemin = new Dictionary<ItemS.vegity, int>();
     // Start is called before the first frame update
@@ -21,9 +22,33 @@ public class itemCollect : Mirror.NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (itemCollecter && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("sp item");
+            ItemS item = itemCollecter.gameObject.GetComponent<ItemS>();
+            addtoinventory(item);
+            ItemCollected.Invoke(item.typeofvegi);
+            printIN();
+        }
     }
-    private void OnTriggerStay(Collider other)
+
+        private void OnTriggerEnter(Collider other)
+        {
+          if (!isLocalPlayer)
+          {
+            return;
+          }
+
+           if (other.CompareTag("Item")) 
+           {
+            itemCollecter = other;
+
+
+            
+
+           }
+        }
+    private void OnTriggerExit(Collider other)
     {
         if (!isLocalPlayer)
         {
@@ -32,11 +57,7 @@ public class itemCollect : Mirror.NetworkBehaviour
 
         if (other.CompareTag("Item") && Input.GetKeyDown(KeyCode.Space))
         {
-            ItemS item = other.gameObject.GetComponent<ItemS>();
-            addtoinventory(item);
-            ItemCollected.Invoke(item.typeofvegi);
-            printIN();
-
+            itemCollecter = null;
         }
     }
     private void addtoinventory(ItemS item)
