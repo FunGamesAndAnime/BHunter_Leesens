@@ -1,40 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// UnityEngine.Networking;
 
-public class playerMovement : MonoBehaviour
+public class playerMovement : Mirror.NetworkBehaviour
 {
     private Rigidbody rbplayer;
     private Vector3 diretion = Vector3.zero;
     public float speed = 10.0f;
-    public GameObject spawnPiont = null;
-    private Dictionary<ItemS.vegity, int> itemin = new Dictionary<ItemS.vegity, int>();
+    public GameObject[] spawnPoints = null;
+    
     // Start is called before the first frame update
     void Start()
     {
-        rbplayer = GetComponent<Rigidbody>();
-        foreach(ItemS.vegity item in System.Enum.GetValues(typeof(ItemS.vegity)))
+        if (!isLocalPlayer)
         {
-            itemin.Add(item, 0);
+            return;
         }
+        rbplayer = GetComponent<Rigidbody>();
+        spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
+       
         
 
     }
-    private void addtoinventory(ItemS item)
-    {
-        itemin[item.typeofvegi]++;
-    }
-    private void printIN()
-    {
-        string output = "";
-        foreach(KeyValuePair<ItemS.vegity, int> kvp in itemin)
-        {
-            output += string.Format("{0}: {1} ", kvp.Key, kvp.Value);
-        }
-        Debug.Log(output);
-    }
+    
     private void Update()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         float hermove = Input.GetAxis("Horizontal");
         float vermove = Input.GetAxis("Vertical");
         diretion = new Vector3(hermove, 0, vermove);
@@ -43,6 +39,10 @@ public class playerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
         rbplayer.AddForce(diretion * speed, ForceMode.Force);
 
         if(transform.position.z > 40)
@@ -57,20 +57,23 @@ public class playerMovement : MonoBehaviour
     }
     private void Respawn()
     {
-        rbplayer.MovePosition(spawnPiont.transform.position);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Item"))
+        int index = 0;
+        while (Physics.CheckBox(spawnPoints[index].transform.position, new Vector3(1.5f, 1.5f, 1.5f)))
         {
-            ItemS item = other.gameObject.GetComponent<ItemS>();
-            addtoinventory(item);
-            printIN();
-
+            index++;
         }
+
+        rbplayer.MovePosition(spawnPoints[index].transform.position);
     }
+    
+   
     private void OnTriggerExit(Collider other)
     {
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (other.CompareTag("Hazard"))
         {
             Respawn();
