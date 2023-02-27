@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor.Networking;
+//using UnityEditor.Networking;
 public class itemCollect : Mirror.NetworkBehaviour
 
 {
