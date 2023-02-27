@@ -27,11 +27,21 @@ public class itemCollect : Mirror.NetworkBehaviour
             Debug.Log("sp item");
             ItemS item = itemCollecter.gameObject.GetComponent<ItemS>();
             addtoinventory(item);
-            ItemCollected.Invoke(item.typeofvegi);
+            
             printIN();
+            cmdItemCOLLECTED(item.typeofvegi);
         }
     }
-
+    [Mirror.Command]
+    void cmdItemCOLLECTED(ItemS.vegity itemType)
+    {
+        RpcItemCOLLECTED(itemType);
+    }
+    [Mirror.ClientRpc]
+    void RpcItemCOLLECTED(ItemS.vegity itemType)
+    {
+        ItemCollected.Invoke(itemType);
+    }
         private void OnTriggerEnter(Collider other)
         {
           if (!isLocalPlayer)
