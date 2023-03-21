@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gooy : MonoBehaviour
 {
     public List<GameObject> Itemss;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -16,9 +17,11 @@ public class Gooy : MonoBehaviour
     {
         
     }
-    void IncrumentItem(ItemS.vegity itemtype)
+    public void IncrumentItem(ItemS.vegity itemtype)
     {
+        
         cGooy cg = Itemss[(int)itemtype].GetComponent<cGooy>();
+        print("baka");
         cg.UpdateCount();
     }
 }

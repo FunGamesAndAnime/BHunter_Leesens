@@ -6,9 +6,9 @@ public class ItemS : MonoBehaviour
 {
     public enum vegity
     {
-        beet,
-        carret,
-        radish
+        Beet,
+        Carret,
+        Radish
 
     }
     public vegity typeofvegi;

@@ -9,7 +9,8 @@ public class itemCollect : Mirror.NetworkBehaviour
     public static event CollectItem ItemCollected;
     Collider itemCollecter = null;
 
-    private Dictionary<ItemS.vegity, int> itemin = new Dictionary<ItemS.vegity, int>();
+    public Dictionary<ItemS.vegity, int> itemin = new Dictionary<ItemS.vegity, int>();
+    //public Gooy uiObj;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class itemCollect : Mirror.NetworkBehaviour
             Debug.Log("sp item");
             ItemS item = itemCollecter.gameObject.GetComponent<ItemS>();
             addtoinventory(item);
+           // uiObj.IncrumentItem(item.typeofvegi);
             
             printIN();
             cmdItemCOLLECTED(item.typeofvegi);
@@ -35,11 +37,13 @@ public class itemCollect : Mirror.NetworkBehaviour
     [Mirror.Command]
     void cmdItemCOLLECTED(ItemS.vegity itemType)
     {
+        Debug.Log("Cmd");
         RpcItemCOLLECTED(itemType);
     }
     [Mirror.ClientRpc]
     void RpcItemCOLLECTED(ItemS.vegity itemType)
     {
+        Debug.Log("rpcI");
         ItemCollected.Invoke(itemType);
     }
         private void OnTriggerEnter(Collider other)

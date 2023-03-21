@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 44820123}
   - component: {fileID: 44820122}
   m_Layer: 5
-  m_Name: Radish c
+  m_Name: 'Radish '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -422,7 +422,7 @@ GameObject:
   - component: {fileID: 259578286}
   - component: {fileID: 259578285}
   m_Layer: 5
-  m_Name: beet c
+  m_Name: 'Beet '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -716,8 +716,8 @@ MonoBehaviour:
   autoStartServerBuild: 1
   autoConnectClientBuild: 0
   sendRate: 30
-  offlineScene: 
-  onlineScene: 
+  offlineScene: Assets/Scenes/SampleScene.unity
+  onlineScene: Assets/Scenes/SampleScene.unity
   transport: {fileID: 367531006}
   networkAddress: localhost
   maxConnections: 100
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 1777871327}
   - component: {fileID: 1777871326}
   m_Layer: 5
-  m_Name: carrtes
+  m_Name: Carret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
