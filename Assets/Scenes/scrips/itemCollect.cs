@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Mirror;
 //using UnityEditor.Networking;
-public class itemCollect : Mirror.NetworkBehaviour
+public class itemCollect : NetworkBehaviour
 
 {
     public delegate void CollectItem(ItemS.vegity item);
@@ -34,17 +35,17 @@ public class itemCollect : Mirror.NetworkBehaviour
             cmdItemCOLLECTED(item.typeofvegi);
         }
     }
-    [Mirror.Command]
+    [Command]
     void cmdItemCOLLECTED(ItemS.vegity itemType)
     {
-        Debug.Log("Cmd");
+        Debug.Log("Cmd" + itemType);
         RpcItemCOLLECTED(itemType);
     }
-    [Mirror.ClientRpc]
+    [ClientRpc]
     void RpcItemCOLLECTED(ItemS.vegity itemType)
     {
         Debug.Log("rpcI");
-        ItemCollected.Invoke(itemType);
+        ItemCollected?.Invoke(itemType);
     }
         private void OnTriggerEnter(Collider other)
         {
