@@ -714,7 +714,7 @@ MonoBehaviour:
   dontDestroyOnLoad: 1
   runInBackground: 1
   autoStartServerBuild: 1
-  autoConnectClientBuild: 0
+  autoConnectClientBuild: 1
   sendRate: 30
   offlineScene: Assets/Scenes/SampleScene.unity
   onlineScene: Assets/Scenes/SampleScene.unity
@@ -732,7 +732,7 @@ MonoBehaviour:
   - {fileID: 4204900835331459589, guid: 9a1a487f91a2e384ebebb718fa38536c, type: 3}
   - {fileID: 836764500921253667, guid: 80e5c5b30c993a14eb2688a9783399b8, type: 3}
   - {fileID: 8183867263864723431, guid: 9e62324c2bd193c40bb35f45a70b571d, type: 3}
-  timeInterpolationGui: 0
+  timeInterpolationGui: 1
 --- !u!4 &367531005
 Transform:
   m_ObjectHideFlags: 0
