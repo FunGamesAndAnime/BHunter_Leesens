@@ -13,9 +13,9 @@ public class swormbrain : MonoBehaviour
     {
         patrol = GetComponent<Patrol>();
         bot = GetComponent<Bot>();
-        HivePickUp.HivePickedUp += hivetaken;
+        HivePickUp.HivePickedUp += Hivetaken;
     }
-    void hivetaken()
+    void Hivetaken()
     {
         hashive = false;
     }
@@ -24,7 +24,7 @@ public class swormbrain : MonoBehaviour
     {
         if (hashive)
         {
-            patrol.PatrolWaypoints();
+            //patrol.PatrolWaypoints();
         }
         else
         {
@@ -33,7 +33,7 @@ public class swormbrain : MonoBehaviour
     }
 }
 
-internal class Patrol
+internal class Patrol : MonoBehaviour
 {
     internal void PatrolWaypoints()
     {

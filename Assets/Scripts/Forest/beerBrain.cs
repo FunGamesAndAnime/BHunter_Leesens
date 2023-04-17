@@ -7,6 +7,8 @@ public class beerBrain : MonoBehaviour
     private Bot bot;
     private Vector3 hivepos;
     private bool hivedropped = false;
+    private bool isStopped = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,26 +24,39 @@ public class beerBrain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hivedropped)
+        if (!isStopped)
         {
-            bot.Seek(hivepos);
-        }
-        else
-        {
-
-
-            if (bot.CanTargetSeeMe())
+            if (hivedropped)
             {
-                bot.Evade();
-            }
-            else if (bot.CanSeeTarget())
-            {
-                bot.Pursue();
+                bot.Seek(hivepos);
             }
             else
             {
-                bot.Wander();
+
+
+                if (bot.CanTargetSeeMe())
+                {
+                    bot.Evade();
+                }
+                else if (bot.CanSeeTarget())
+                {
+                    bot.Pursue();
+                }
+                else
+                {
+                    bot.Wander();
+                }
             }
+        }
+       
+
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            bot.Stop();
+            isStopped = true;
         }
     }
 }
