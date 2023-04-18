@@ -6,12 +6,12 @@ using UnityEngine;
 public class swormbrain : MonoBehaviour
 {
     private bool hashive = true;
-    private Patrol patrol;
+    private potroling patrol;
     private Bot bot;
     // Start is called before the first frame update
     void Start()
     {
-        patrol = GetComponent<Patrol>();
+        patrol = GetComponent<potroling>();
         bot = GetComponent<Bot>();
         HivePickUp.HivePickedUp += Hivetaken;
     }
@@ -24,7 +24,7 @@ public class swormbrain : MonoBehaviour
     {
         if (hashive)
         {
-            //patrol.PatrolWaypoints();
+            patrol.potralWP();
         }
         else
         {
@@ -33,10 +33,4 @@ public class swormbrain : MonoBehaviour
     }
 }
 
-internal class Patrol : MonoBehaviour
-{
-    internal void PatrolWaypoints()
-    {
-        throw new NotImplementedException();
-    }
-}
+
