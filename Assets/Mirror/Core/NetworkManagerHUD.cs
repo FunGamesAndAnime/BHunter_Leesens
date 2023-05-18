@@ -15,6 +15,7 @@ namespace Mirror
 
         public int offsetX;
         public int offsetY;
+        public static object enable;
 
         void Awake()
         {
