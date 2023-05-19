@@ -47,7 +47,8 @@ public class NavPlayerMovement : MonoBehaviour
         rotate = 0;
 
         Vector3 move = transform.forward * trans;
-        rgBody.velocity = move * speed * Time.deltaTime;
+        move.y = rgBody.velocity.y;
+        rgBody.velocity = move; //* Time.deltaTime;
         trans = 0;
     }
     private void OnCollisionEnter(Collision collision)
@@ -76,7 +77,7 @@ public class NavPlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Hazard"))
         {
-            //LookTarget.position = other.transform.position;
+            LookTarget.position = other.transform.position;
             StartCoroutine(LookAndLookAway(LookTarget.position, other.transform.position));
         }
     }

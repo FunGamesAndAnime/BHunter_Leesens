@@ -9,7 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2287494027950128723, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
       propertyPath: m_Name
-      value: OptimizedTree
+      value: OptimizedTree Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748305028703179849, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
+      propertyPath: m_Size.z
+      value: 2.0700672
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748305028703179849, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2306782
       objectReference: {fileID: 0}
     - target: {fileID: 3992342494011618008, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
       propertyPath: m_RootOrder
@@ -54,10 +62,6 @@ PrefabInstance:
     - target: {fileID: 3992342494011618008, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8454925490208139748, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3397e31c5cb9f6b48b2e3579db3ebfc9, type: 3}
