@@ -8,7 +8,7 @@ public class RMOVEneTWORK : Mirror.NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameObject netmgr = GameObject.Find("NetworkManager");
+        GameObject netmgr = GameObject.Find("networkmanagor");
         Mirror.NetworkManagerHUD netMgrHUD = netmgr.GetComponent<Mirror.NetworkManagerHUD>();
         netMgrHUD.enabled = false;
     }

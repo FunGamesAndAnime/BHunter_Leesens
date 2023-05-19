@@ -77,7 +77,7 @@ public class NavPlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Hazard"))
         {
-            //LookTarget.position = other.transform.position;
+            LookTarget.position = other.transform.position;
             StartCoroutine(LookAndLookAway(LookTarget.position, other.transform.position));
         }
     }

@@ -134,7 +134,7 @@ public class ForestState : PlayerState
     {
         player.transform.position = new Vector3(-24f, 1f, -34f);
 
-        Transform rabbit = player.transform.Find("Rabbit");
+        Transform rabbit = player.transform.Find("Rabbit 1");
         rabbit.transform.localEulerAngles = Vector3.zero;
         rabbit.transform.localScale = Vector3.one;
 
@@ -181,7 +181,7 @@ public class ForestState : PlayerState
     {
         if (collision.collider.CompareTag("Hazard"))
         {
-            anim.SetTrigger("Died");
+            anim.SetTrigger("died");
             thisObject.StartCoroutine(ZoomOut());
         }
         else
@@ -205,7 +205,7 @@ public class ForestState : PlayerState
     {
         if (other.CompareTag("Hazard"))
         {
-            //lookTarget.position = other.transform.position;
+            lookTarget.position = other.transform.position;
             thisObject.StartCoroutine(LookAndLookAway(lookTarget.position, other.transform.position));
         }
     }
@@ -240,7 +240,7 @@ public class ForestState : PlayerState
     }
 }
 
-public class PlayerContext : NetworkBehaviour
+public class playercontestc : NetworkBehaviour
 {
     PlayerState currentState;
 
