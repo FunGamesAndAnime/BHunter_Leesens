@@ -89,10 +89,10 @@ public class RiverState : PlayerState
     {
         if (other.CompareTag("Exit"))
         {
-            NetworkManager networkManager =
-                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+            NetworkManager networkManagor =
+                GameObject.Find("NetworkManagor").GetComponent<NetworkManager>();
 
-            networkManager.ServerChangeScene("ForestLevel");
+            networkManagor.ServerChangeScene("ForestLevel");
         }
     }
 
