@@ -172,7 +172,7 @@ GameObject:
   - component: {fileID: 2469160076962817246}
   - component: {fileID: 3002620035340055471}
   - component: {fileID: 625637758501222198}
-  - component: {fileID: 1062954829650180783}
+  - component: {fileID: 1675546252999292405}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -313,7 +313,7 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0.1
---- !u!114 &1062954829650180783
+--- !u!114 &1675546252999292405
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -15,6 +15,7 @@ public class NavPlayerMovement : MonoBehaviour
     private Animator anim;
     private Camera camera;
     private Transform LookTarget;
+    
     private void Start()
     {
         rgBody = GetComponent<Rigidbody>();
@@ -55,6 +56,7 @@ public class NavPlayerMovement : MonoBehaviour
     {
         if (collision.collider.CompareTag("Hazard"))
         {
+            Debug.Log("direction");
             anim.SetTrigger("died");
             StartCoroutine(ZoomOut());
 

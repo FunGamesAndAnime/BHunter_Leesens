@@ -1,3 +1,4 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -39,7 +40,7 @@ public class RiverState : PlayerState
     public RiverState(NetworkBehaviour thisObj) : base(thisObj)
     {
         stateName = "RiverLevel";
-        //GameData.gamePlayStart = Time.time;
+        GameData.gamePlayStart = Time.time;
     }
 
     // Start is called before the first frame update
@@ -89,10 +90,10 @@ public class RiverState : PlayerState
     {
         if (other.CompareTag("Exit"))
         {
-            NetworkManager networkManagor =
-                GameObject.Find("NetworkManagor").GetComponent<NetworkManager>();
+            NetworkManager networkManager =
+                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
 
-            networkManagor.ServerChangeScene("ForestLevel");
+            networkManager.ServerChangeScene("ForestLevel");
         }
     }
 
@@ -134,7 +135,7 @@ public class ForestState : PlayerState
     {
         player.transform.position = new Vector3(-24f, 1f, -34f);
 
-        Transform rabbit = player.transform.Find("Rabbit 1");
+        Transform rabbit = player.transform.Find("Rabbit");
         rabbit.transform.localEulerAngles = Vector3.zero;
         rabbit.transform.localScale = Vector3.one;
 
@@ -181,7 +182,7 @@ public class ForestState : PlayerState
     {
         if (collision.collider.CompareTag("Hazard"))
         {
-            anim.SetTrigger("died");
+            anim.SetTrigger("Died");
             thisObject.StartCoroutine(ZoomOut());
         }
         else
@@ -205,8 +206,16 @@ public class ForestState : PlayerState
     {
         if (other.CompareTag("Hazard"))
         {
-            lookTarget.position = other.transform.position;
+            //lookTarget.position = other.transform.position;
             thisObject.StartCoroutine(LookAndLookAway(lookTarget.position, other.transform.position));
+        }
+
+        if (other.CompareTag("Exit"))
+        {
+            NetworkManager networkManager =
+                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+
+            networkManager.ServerChangeScene("EndScene");
         }
     }
 
@@ -240,7 +249,7 @@ public class ForestState : PlayerState
     }
 }
 
-public class playercontestc : NetworkBehaviour
+public class PlayerContext : NetworkBehaviour
 {
     PlayerState currentState;
 
@@ -253,12 +262,19 @@ public class playercontestc : NetworkBehaviour
         {
             currentState = new RiverState(this);
         }
-        if (SceneManager.GetActiveScene().name == "ForestLevel")
+        else if (SceneManager.GetActiveScene().name == "ForestLevel")
         {
             currentState = new ForestState(this);
         }
+        else
+        {
+            this.gameObject.SetActive(false);
+        }
 
-        currentState.Start();
+        if (currentState != null)
+        {
+            currentState.Start();
+        }
     }
 
     // Update is called once per frame
