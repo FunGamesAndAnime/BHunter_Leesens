@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class beerBrain : MonoBehaviour
+public class BearBrain : MonoBehaviour
 {
+    //Wander if it can't see the player,
+    //if we can see the bear, it will evade
+    //if the hive is dropped we will seek hive
     private Bot bot;
-    private Vector3 hivepos;
-    private bool hivedropped = false;
+    private Vector3 hivePos;
+    private bool hiveDropped = false;
     private bool isStopped = false;
 
     // Start is called before the first frame update
@@ -15,10 +18,11 @@ public class beerBrain : MonoBehaviour
         bot = GetComponent<Bot>();
         NavPlayerMovement.DroppedHive += HiveReady;
     }
-    public void HiveReady(Vector3 pos)
+
+    void HiveReady(Vector3 pos)
     {
-        hivepos = pos;
-        hivedropped = true;
+        hivePos = pos;
+        hiveDropped = true;
     }
 
     // Update is called once per frame
@@ -26,14 +30,12 @@ public class beerBrain : MonoBehaviour
     {
         if (!isStopped)
         {
-            if (hivedropped)
+            if (hiveDropped)
             {
-                bot.Seek(hivepos);
+                bot.Seek(hivePos);
             }
             else
             {
-
-
                 if (bot.CanTargetSeeMe())
                 {
                     bot.Evade();
@@ -48,12 +50,11 @@ public class beerBrain : MonoBehaviour
                 }
             }
         }
-       
-
     }
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("player"))
+        if (collision.collider.CompareTag("Player"))
         {
             bot.Stop();
             isStopped = true;

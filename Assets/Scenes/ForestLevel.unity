@@ -3601,10 +3601,10 @@ GameObject:
   - component: {fileID: 1715602025}
   - component: {fileID: 1715602024}
   - component: {fileID: 1715602023}
-  - component: {fileID: 1715602029}
   - component: {fileID: 1715602022}
   - component: {fileID: 1715602028}
   - component: {fileID: 1715602030}
+  - component: {fileID: 1715602029}
   m_Layer: 0
   m_Name: Bear
   m_TagString: Hazard
@@ -3659,7 +3659,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.15
+  m_Radius: 0.55670977
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
