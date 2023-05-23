@@ -1747,7 +1747,6 @@ MonoBehaviour:
   - {fileID: 4204900835331459589, guid: 9a1a487f91a2e384ebebb718fa38536c, type: 3}
   - {fileID: 836764500921253667, guid: 80e5c5b30c993a14eb2688a9783399b8, type: 3}
   - {fileID: 8183867263864723431, guid: 9e62324c2bd193c40bb35f45a70b571d, type: 3}
-  - {fileID: 0}
   timeInterpolationGui: 1
 --- !u!4 &1323008956
 Transform:

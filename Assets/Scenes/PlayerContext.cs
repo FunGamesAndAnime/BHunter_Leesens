@@ -64,7 +64,7 @@ public class RiverState : PlayerState
         //Debug.Log(direction);
 
         rbPlayer.AddForce(direction * speed, ForceMode.Force);
-
+        Debug.Log(player.transform.position);
         if (player.transform.position.z > 40)
         {
             player.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 40);
