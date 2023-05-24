@@ -91,7 +91,7 @@ public class RiverState : PlayerState
         if (other.CompareTag("Exit"))
         {
             NetworkManager networkManager =
-                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+                GameObject.Find("networkmanagor").GetComponent<NetworkManager>();
 
             networkManager.ServerChangeScene("ForestLevel");
         }
@@ -213,7 +213,7 @@ public class ForestState : PlayerState
         if (other.CompareTag("Exit"))
         {
             NetworkManager networkManager =
-                GameObject.Find("NetworkManager").GetComponent<NetworkManager>();
+                GameObject.Find("networkmanagor").GetComponent<NetworkManager>();
 
             networkManager.ServerChangeScene("EndScene");
         }
